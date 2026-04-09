@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating your NexStar Evolution mount with Celestron Firmware Manager (CFM)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+        }
+        h1 {
+            color: #f47920;
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            color: #f47920;
+            font-size: 1.5em;
+            border-bottom: 2px solid #f47920;
+            padding-bottom: 5px;
+            margin-top: 1.5em;
+        }
+        h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-top: 1.5em;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a2e;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #f47920;
+            margin: 0;
+        }
+        .header .subtitle {
+            color: #ccc;
+            font-size: 0.9em;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .important-note {
+            background-color: #fff3cd;
+            border-left: 4px solid #f47920;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .step {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .step-number {
+            background-color: #f47920;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .img-caption {
+            text-align: center;
+            font-size: 0.85em;
+            color: #666;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+        a {
+            color: #0066cc;
+            word-break: break-all;
+        }
+        .jump-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .jump-links a {
+            background-color: #f47920;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .jump-links a:hover {
+            background-color: #d66a1a;
+        }
+        .os-section {
+            border-top: 4px solid #f47920;
+            margin-top: 40px;
+            padding-top: 20px;
+        }
+        .cable-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1a1a2e;
+            color: #ccc;
+            font-size: 0.85em;
+        }
+        .page-number {
+            color: #999;
+            font-size: 0.8em;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .img-container {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="macos" class="os-section">
+        <h1>MacOS</h1>
+       
+        <div class="step">
+            <span class="step-number">Step 1</span>
+            <h3>Install the Prolific Serial driver and extension.</h3>
+            <ul>
+                <li>Open the App Store and search for PL2303. You will find the PL2303 Serial extension and driver. The app looks like this:</li>
+            </ul>
+            
+            <div class="img-container">
+                <img src="images/img-014.png" alt="App Store PL2303">
+            </div>
+            
+            <ul>
+                <li>Click Get to download the app. Once the extension is installed, click Open.</li>
+            </ul>
+            
+            <p><strong>Note:</strong> There may be other versions of the driver that show up in the app store. Be sure to get the correct PL2303 version.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">Step 2</span>
+            <h3>Navigate to the Prolific Serial settings.</h3>
+            <ul>
+                <li>The first time you open the PL2303 Serial app, you may see a dialog box like the one below. If you see the dialog box, click "Open System Settings" and proceed directly to step 3. If you do not see the dialog box, follow the steps below to manually navigate to the settings.</li>
+            </ul>
+            
+            <div class="img-container">
+                <img src="images/img-015.png" alt="PL2303 Dialog">
+            </div>
+            
+            <ul>
+                <li>Open the Apple menu in the top left corner of your screen and choose System Settings.</li>
+            </ul>
+            
+            <div class="img-container">
+                <img src="images/img-016.png" alt="System Settings">
+            </div>
+            
+            <ul>
+                <li>Open the General tab, shown above, and click "Login Items & Extensions" to open the Extensions pane.</li>
+                <li>In the Login Items & Extensions pane, check for the "com.prolific" reference. If you're using an older version of MacOS, click the "i" in a circle on the right to open the extension tab for the Prolific driver. In newer versions of MacOS just scroll down to the Extensions section of the list to find the PL2303Serial driver.</li>
+            </ul>
+            
+            <div class="img-container">
+                <img src="images/img-017.png" alt="Login Items Extensions">
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">Step 3</span>
+            <h3>Enable the Prolific Serial extension.</h3>
+            <ul>
+                <li>In the Extension pane for the Prolific driver, enable the extension as shown. Then click Done. The Prolific Serial driver is now ready to use.</li>
+            </ul>
+            
+            <div class="img-container">
+                <img src="images/img-020.png" alt="Enable Extension">
+            </div>
+        </div>
+
+
+
+</body>
+</html>

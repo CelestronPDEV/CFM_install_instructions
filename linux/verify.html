@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestron Software Verification</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
+        h3 { color: #0056b3; }
+        .terminal-box { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 6px; position: relative; margin: 15px 0; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; }
+        .copy-btn { position: absolute; top: 10px; right: 10px; background: #555; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; transition: background 0.2s; }
+        .copy-btn:hover { background: #777; }
+        .note { background: #fff4ce; border-left: 5px solid #f0b400; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+        .footer { margin-top: 50px; font-size: 0.9em; color: #666; }
+    </style>
+</head>
+<body>
+
+    <h1>Security & Verification</h1>
+    <p>Before installing, please verify that the Celestron Firmware Manager you downloaded is authentic. We use GPG (GNU Privacy Guard) to sign our official packages.</p>
+
+    <h2>1. Initial Setup (One-time only)</h2>
+    <p>To verify our software, you must first import the Celestron public signing key to your local keyring. You only need to do this once.</p>
+
+    <div class="terminal-box">
+        <button class="copy-btn" onclick="copyText('import-cmd')">Copy</button>
+        <div id="import-cmd">curl -s https://software.celestron.com/updates/linux/celestron-linux-signing.asc | gpg --import</div>
+    </div>
+
+    <hr>
+
+    <h2>2. Verify Your Package</h2>
+    <p>Perform this step whenever you download a new update. Navigate to the directory where you extracted the ZIP archive before running these commands.</p>
+
+    <h3>For Debian / Ubuntu Systems (.deb)</h3>
+    <div class="terminal-box">
+        <button class="copy-btn" onclick="copyText('deb-cmd')">Copy</button>
+        <div id="deb-cmd">gpg --verify celestronfirmwaremanager_3.0-1_amd64.deb.asc celestronfirmwaremanager_3.0-1_amd64.deb</div>
+    </div>
+
+    <h3>For RedHat / Fedora / AlmaLinux (.rpm)</h3>
+    <div class="terminal-box">
+        <button class="copy-btn" onclick="copyText('rpm-cmd')">Copy</button>
+        <div id="rpm-cmd">gpg --verify celestronfirmwaremanager-3.0-1.x86_64.rpm.asc celestronfirmwaremanager-3.0-1.x86_64.rpm</div>
+    </div>
+
+    <div class="note">
+        <strong>What the results mean:</strong><br>
+        • <strong>Success:</strong> Look for <code>gpg: Good signature from "Celestron..."</code>.<br>
+        • <strong>Note:</strong> A warning about "not certified with a trusted signature" is normal and expected unless you have manually signed our key.<br>
+        • <strong>Warning:</strong> If you see <code>BAD signature</code>, do not run the software and delete the file.
+    </div>
+
+    <script>
+        function copyText(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = originalText; }, 2000);
+            });
+        }
+    </script>
+
+    <div class="footer">
+        &copy; 2026 Celestron. For security concerns, please contact our support team.
+    </div>
+
+</body>
+</html>

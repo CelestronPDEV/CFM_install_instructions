@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install Celestron Firmware Manager - Windows</title>
+    <style>
+        body { font-family: "Segoe UI", Tahoma, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 850px; margin: 40px auto; padding: 0 20px; background-color: #f3f3f3; }
+        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #0078d4; border-bottom: 2px solid #0078d4; padding-bottom: 10px; }
+        h2 { margin-top: 30px; color: #444; }
+        .step { margin-bottom: 25px; padding-left: 20px; border-left: 3px solid #0078d4; }
+        .note-box { background: #fff4ce; border-left: 5px solid #f0b400; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .btn-link { display: inline-block; background: #0078d4; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-top: 10px; font-weight: bold; }
+        .btn-link:hover { background: #005a9e; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; font-family: Consolas, monospace; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; margin: 15px 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Installation Guide: Windows 10 & 11</h1>
+    <p>Follow these steps to install the Celestron Firmware Manager (CFM) on your Windows PC.</p>
+
+    <div class="step">
+        <h2>1. Extract the Archive</h2>
+        <p>Right-click the downloaded <code>.zip</code> folder and select <strong>Extract All...</strong>. Choose a destination folder and click Extract.</p>
+    </div>
+
+    <div class="step">
+        <h2>2. Run the Installer</h2>
+        <p>Inside the extracted folder, double-click the <code>celestronfirmwaremanager_3.0_x86.msi</code> file.</p>
+        <p><em>Note: Windows will automatically verify our digital signature. If you see a security prompt, verify the publisher is <strong>Celestron</strong> and click <strong>Run</strong>.</em></p>
+    </div>
+
+    <div class="step">
+        <h2>3. Launch CFM</h2>
+        <p>Once installation is complete, you can launch the application from your <strong>Start Menu</strong> by searching for "Celestron Firmware Manager".</p>
+    </div>
+
+    <hr>
+
+    <h2>USB Connectivity (Prolific Driver)</h2>
+    <p>If you are connecting to your telescope via a USB port on the hand controller, Windows usually identifies and installs the driver automatically.</p>
+
+    <div class="note-box">
+        <h3>Troubleshooting Connection Issues</h3>
+        <p>If CFM cannot find your hand controller after you have plugged it in, you may need the <strong>Legacy Prolific Driver (v3.8.x)</strong>.</p>
+        
+        <p><strong>Recommended Steps:</strong></p>
+        <ol>
+            <li><strong>Unplug</strong> your hand controller from the PC.</li>
+            <li>Download the version 3.8.x driver from the official <strong>Microsoft Update Catalog</strong>.</li>
+            <a href="https://www.catalog.update.microsoft.com/Search.aspx?q=Prolific%203.8.31.0" class="btn-link" target="_blank">Search Microsoft Catalog</a>
+            <li>Install the driver.</li>
+            <li><strong>Reboot your computer</strong> to ensure the system initializes the legacy driver correctly.</li>
+            <li>Plug your hand controller back in and launch CFM.</li>
+        </ol>
+    </div>
+
+    <p style="font-size: 0.9em; color: #666; margin-top: 50px;">
+        Return to the <a href="#">Main Download Page</a>
+    </p>
+</div>
+
+</body>
+</html>
